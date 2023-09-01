@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import Accordion from './Accordion1';
 
 function App() {
   return (
     <div className="mybox">
-      <h1>ReactJS</h1>
+      <Accordion></Accordion>
       
     </div>
   );
