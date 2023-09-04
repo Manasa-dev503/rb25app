@@ -1,10 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import Photos from './Gallery';
 
 function App() {
   return (
     <div className="mybox">
-      <h1>ReactJS</h1>
+      <Photos></Photos>
+      
       
     </div>
   );
