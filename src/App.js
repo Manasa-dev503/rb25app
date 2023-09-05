@@ -1,12 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
-import { Link,Outlet} from react-dom/"client"
+import { Link,Outlet } from 'react-router-dom';
+
+
+
 
 function App() {
   return (
     <div className="mybox">
       <h1>Welcome to Edupoly ReactJS</h1>
-      <Link to=".About"></Link>
+      <Link to='/Aboutus'>Aboutus</Link>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <Link to='/Courses'>Courses</Link>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <Link to='/Countries'>Countries</Link>
       <Outlet></Outlet>
       
     </div>

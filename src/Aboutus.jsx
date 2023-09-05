@@ -1,7 +1,7 @@
 import React from 'react';
 function Aboutus(){
    return (
-    <div>
+    <div className='mybox'>
         {
             <div>
                 <h1>This is Manasa from Ongole.....</h1>
