@@ -6,37 +6,35 @@ import { createRoot } from 'react-dom/client';
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
-  Link,
 } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import Aboutus from './Aboutus';
 import Courses from './Courses';
 import Countries from './Countries';
+import Countrydetails from './Countrydetails';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <App></App>
-    ),
+    element: <App></App>,
     children:[
     {
       path: "/aboutus",
-      element: (
-        <Aboutus></Aboutus>
-      ),
+      element: <Aboutus></Aboutus>,
     },
     {
       path: "/courses",
-      element: (
-        <Courses></Courses>
-      ),
+      element: <Courses></Courses>,
     },
     {
       path: "/countries",
-      element: (
-        <Countries></Countries>
-      ),
+      element: 
+        <Countries></Countries>,
+        children:[
+          {
+            path: "/countries/details/:cname",
+            element: <Countrydetails></Countrydetails>
+          }
+        ]
     }
   ]
   },
