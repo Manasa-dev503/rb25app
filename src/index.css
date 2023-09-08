@@ -6,3 +6,7 @@
 .changecolour:hover{
   border: 5px solid green;
 }
+button:disabled{
+  background-color: green;
+  color: white;
+}
