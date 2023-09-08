@@ -37,8 +37,8 @@ function Photos(){
             <div class="d-flex flex-wrap">
             {
                 photos.map((a,i)=>{
-                    return<div  class="card p-3 mb-5 rounded m-4 bg-light text-emphasis-info" style={{width: '14rem',boxShadow:"20px"}}>
-                    <center><img src={a.download_url} style={{height:'160px',width:'160px',marginBottom:"20px"}} alt="Card image cap"/></center>
+                    return<div  class="card p-3 mb-5 rounded m-4 bg-light text-emphasis-info changecolour" style={{width: '14rem',boxShadow:"20px"}}>
+                    <center><img src={a.download_url} style={{height:'160px',width:'160px',marginBottom:"20px"}}  alt="Card image cap"/></center>
                     <button  class="btn btn-secondary" onClick={(ev)=>{addtogallery(i)}} disabled={a.flag?true:false}>Add to Gallery</button>
                     </div>
                     })
@@ -60,8 +60,7 @@ function Photos(){
             }
                     </div>
                     </div>
-        
-    )
+            )
     
 }
 export default Photos;
