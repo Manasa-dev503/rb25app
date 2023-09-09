@@ -54,7 +54,7 @@ function Shopping(){
                       <h5 class="card-title">{a.title}</h5>
                       <p class="card-text text-success">Price:{"$ "+a.price}</p>
                     <div>
-                        <button  class="btn btn-info shopping" onClick={(ev)=>{addtocart(i)}}  disabled={a.IsProductInCart?true:false}>{(a.IsProductInCart)?"Added":"Addtocart"}</button>
+                        <button  class="btn btn-info shopping" onClick={(ev)=>{addtocart(i)}}  disabled={a.IsProductInCart?true:false}>{(a.IsProductInCart)?"Added":"Add to cart"}</button>
                     </div>
                     </div>
                     </div>
