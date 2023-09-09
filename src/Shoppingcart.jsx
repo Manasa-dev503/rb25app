@@ -48,7 +48,7 @@ function Shopping(){
             <div class="d-flex flex-wrap">
             {
                 products.map((a,i)=>{
-                    return <div  class="card p-3 mb-5 rounded m-4 text-emphasis-info" style={{width: '14rem',backgroundColor:"pink",boxShadow:"20px"}}>
+                    return <div  class="card p-3 mb-5 rounded m-4 text-emphasis-info" style={{width: '14rem',backgroundColor:"plum",boxShadow:"20px"}}>
                     <img src={a.image} style={{height:'160px',width:'160px'}} alt="Card image cap"/>
                     <div class="card-body d-flex flex-column justify-content-between"  >
                       <h5 class="card-title">{a.title}</h5>
@@ -66,7 +66,7 @@ function Shopping(){
                 <center><h1 style={(cart.length===0)?{display:"block"}:{display:"none"}}>Your Cart is Empty</h1></center>
                 {
                 cart.length>0 && cart.map((b,ind)=>{
-                    return <div class="card justify-content-between" style={{backgroundColor:"pink",marginBottom:"20px"}}>
+                    return <div class="card justify-content-between" style={{backgroundColor:"plum",marginBottom:"20px"}}>
                         <img src={b.image} style={{height:'80px',width:'80px',marginTop:"10px",borderRadius:"50%"}} alt="Card image cap"/>
                         <p class="card-title" style={{position:'absolute',left:"200px",marginTop:'10px',marginRight:'50px',color:'black'}}>{b.title}</p>
                        <div class="card-body d-flex justify-content-between" >
