@@ -8,9 +8,9 @@ function Todolist(props){
             <h1>Todolist</h1>
             <input type="text" onChange={(e)=>{setnt(e.target.value)}}/>
             <button onClick={()=>{props.addTodoItem(nt)}}>Add Todo</button>
-            {props.todo.map((a)=>{
+            {props.todo.map((a,i)=>{
                 return <li>
-                    {a}<button onClick={()=>{props.deleteTodoItem()}}>Delete</button>
+                    {a}<button onClick={()=>{props.deleteTodoItem(i,1)}}>Delete</button>
                     </li>
             })}
         </div>
