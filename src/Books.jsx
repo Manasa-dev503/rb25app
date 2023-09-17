@@ -3,14 +3,14 @@ import axios from 'axios';
 function Books(){
     var [books,setbooks] = React.useState([])
     var [editflag,seteditflag] = React.useState(false)
-    var [newbook,setnewbook] = React.useState({title:'',author:''})
+    var [newbook,setnewbook] = React.useState({title:'',author:'',Pdf:'',PrintedEdition:''})
     var [selectedbook,setselectedbook] = React.useState(null)
     useEffect(()=>{
         getbooks();
     },[])
     function addbook(){
         axios.post("http://localhost:4000/Books",newbook).then((res)=>{
-            //console.log(res)
+            console.log(res)
             getbooks();
         })
        
@@ -48,6 +48,8 @@ function Books(){
                 <div>
                     <input type='text' placeholder='Enter title' onChange={(event)=>{setnewbook({...newbook,title:event.target.value})}} /><br /><br />
                     <input type='text' placeholder='Enter Author' onChange={(event)=>{setnewbook({...newbook,author:event.target.value})}}/><br /><br />
+                    <input type="radio" value="Pdf" name='data'  onChange={()=>{setnewbook({...newbook,checked:this.state.target.value==="Pdf"})}} />PDF
+                    <input type="radio" value="Printed Edition" name='data' onChange={(event)=>{setnewbook({...newbook,checked:this.state.target.value==="PrintedEdition"})}} />Printed Edition <br /><br />
                     <button onClick={()=>{addbook()}}>ADD Book</button><br /><br />
                 </div>
                 )
@@ -57,6 +59,8 @@ function Books(){
                 <div>
                     <input type='text' placeholder='Enter title' value={selectedbook.title} onChange={(event)=>{setselectedbook({...selectedbook,title:event.target.value})}} /><br /><br />
                     <input type='text' placeholder='Enter Author' value={selectedbook.author} onChange={(event)=>{setselectedbook({...selectedbook,author:event.target.value})}}/><br /><br />
+                    <input type="radio" name='PDF' value={selectedbook.Pdf}/>PDF
+                    <input type="radio" name='Printed Edition' value={selectedbook.PrintedEdition}/>Printed Edition <br /><br />
                     <button onClick={()=>{updatebook()}}>Update Book</button>
                 </div>
 
