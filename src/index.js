@@ -2,13 +2,47 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import Counter from './features/counter/Counter'
 import reportWebVitals from './reportWebVitals';
+import { createRoot } from "react-dom/client";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+} from "react-router-dom";
+import Countries from './features/countries/Countries';
+import CountryDetails from './features/countries/CountryDetails';
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App></App>,
+    children:[
+      {
+        path:"/counter",
+        element: <Counter></Counter>
+      },
+      {
+        path:"/countries",
+        element: <Countries></Countries>,
+        children:[
+          {
+            path:"/countries/:cname",
+            element: <CountryDetails></CountryDetails>
+          }
+        ]
+      }
+    ]
+    
+    
+  }
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  
     <App />
-  </React.StrictMode>
+  
 );
 
 // If you want to start measuring performance in your app, pass a function
