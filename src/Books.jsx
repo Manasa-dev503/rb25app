@@ -19,10 +19,9 @@ function Books(){
         axios.get("http://localhost:4000/Books").then((res)=>{
             console.log(res.data)
             setbooks([...res.data])
+            
         })
         .catch(()=>{})
-
-
     }
     function deletebook(id){
         axios.delete("http://localhost:4000/Books/"+id).then((res)=>{
@@ -46,10 +45,10 @@ function Books(){
             {
                 !editflag && (
                 <div>
-                    <input type='text' placeholder='Enter title' onChange={(event)=>{setnewbook({...newbook,title:event.target.value})}} /><br /><br />
-                    <input type='text' placeholder='Enter Author' onChange={(event)=>{setnewbook({...newbook,author:event.target.value})}}/><br /><br />
-                    <input type="radio" value="Pdf" name='data'  onChange={()=>{setnewbook({...newbook,checked:this.state.target.value==="Pdf"})}} />PDF
-                    <input type="radio" value="Printed Edition" name='data' onChange={(event)=>{setnewbook({...newbook,checked:this.state.target.value==="PrintedEdition"})}} />Printed Edition <br /><br />
+                    <input type='text' placeholder='Enter title' name='data' onChange={(event)=>{setnewbook({...newbook,title:event.target.value})}} /><br /><br />
+                    <input type='text' placeholder='Enter Author' name='data' onChange={(event)=>{setnewbook({...newbook,author:event.target.value})}}/><br /><br />
+                    <input type="radio" value="Pdf" name='data'  onChange={(event)=>{setnewbook({...newbook,Pdf:event.target.value==="Pdf"})}} />PDF
+                    <input type="radio" value="Printed Edition" name='data' onChange={(event)=>{setnewbook({...newbook,PrintedEdition:event.target.value==="PrintedEdition"})}} />Printed Edition <br /><br />
                     <button onClick={()=>{addbook()}}>ADD Book</button><br /><br />
                 </div>
                 )
