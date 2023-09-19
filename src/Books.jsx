@@ -39,16 +39,23 @@ function Books(){
             getbooks();
         })
     }
+    const handleChange = e =>{
+       const target = e.target;
+        if(target.checked){
+           getbooks(target.value)
+        }
+
+    }
     return (
         <div className='mybox'>
             <h1>Books</h1>
             {
                 !editflag && (
                 <div>
-                    <input type='text' placeholder='Enter title' name='data' onChange={(event)=>{setnewbook({...newbook,title:event.target.value})}} /><br /><br />
-                    <input type='text' placeholder='Enter Author' name='data' onChange={(event)=>{setnewbook({...newbook,author:event.target.value})}}/><br /><br />
-                    <input type="radio" value="Pdf" name='data'  onChange={(event)=>{setnewbook({...newbook,Pdf:event.target.value==="Pdf"})}} />PDF
-                    <input type="radio" value="Printed Edition" name='data' onChange={(event)=>{setnewbook({...newbook,PrintedEdition:event.target.value==="PrintedEdition"})}} />Printed Edition <br /><br />
+                    <input type='text' placeholder='Enter title'  onChange={(event)=>{setnewbook({...newbook,title:event.target.value})}} /><br /><br />
+                    <input type='text' placeholder='Enter Author'  onChange={(event)=>{setnewbook({...newbook,author:event.target.value})}}/><br /><br />
+                    <input type="radio" name='data' value={"Pdf"}  onChange={handleChange}/>PDF
+                    <input type="radio"  name='data' value={"PrintedEdition"} onChange={handleChange} />Printed Edition <br /><br />
                     <button onClick={()=>{addbook()}}>ADD Book</button><br /><br />
                 </div>
                 )
@@ -58,8 +65,8 @@ function Books(){
                 <div>
                     <input type='text' placeholder='Enter title' value={selectedbook.title} onChange={(event)=>{setselectedbook({...selectedbook,title:event.target.value})}} /><br /><br />
                     <input type='text' placeholder='Enter Author' value={selectedbook.author} onChange={(event)=>{setselectedbook({...selectedbook,author:event.target.value})}}/><br /><br />
-                    <input type="radio" name='PDF' value={selectedbook.Pdf}/>PDF
-                    <input type="radio" name='Printed Edition' value={selectedbook.PrintedEdition}/>Printed Edition <br /><br />
+                    <input type="radio" name='data' value={"Pdf"} onChange={handleChange}/>PDF
+                    <input type="radio" name='data' value={"PrintedEdition"} onChange={handleChange}/>Printed Edition <br /><br />
                     <button onClick={()=>{updatebook()}}>Update Book</button>
                 </div>
 
@@ -70,7 +77,7 @@ function Books(){
                 books.map((x)=>{
                     return <li>
                         <h4>{x.id}.{x.title}</h4>
-                        <h3>{x.author.toUpperCase()}</h3>
+                        <h3>{x.author}</h3>
                         <button onClick={()=>{deletebook(x.id)}}>Delete</button>&nbsp;&nbsp;&nbsp; 
                         <button onClick={()=>{editbook(x)}}>Edit</button>
                     </li>
