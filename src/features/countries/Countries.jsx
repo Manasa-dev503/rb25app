@@ -8,7 +8,7 @@ function Countries() {
    //console.log(isLoading)
    //console.log(data)
   return ( 
-    <div className='mybox' d-flex flex-wrap>
+    <div className='mybox d-flex flex-wrap'>
         <div className='w-50'>
             <h1>countries</h1>
             {
@@ -17,11 +17,11 @@ function Countries() {
             {
                 !isLoading && data.map((country)=>{
                     return <li>
-                        <Link>{country.name.common}</Link>
+                        <Link to={country.name.common}>{country.name.common}</Link>
                         </li>
 
                 })
-                
+                 
             }
 
         </div>

@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import Counter from './features/counter/Counter'
 import reportWebVitals from './reportWebVitals';
-import { createRoot } from "react-dom/client";
+import Todolist from './features/todolist/Todolist'
+import { createRoot } from 'react-dom/client';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -13,6 +14,9 @@ import {
 } from "react-router-dom";
 import Countries from './features/countries/Countries';
 import CountryDetails from './features/countries/CountryDetails';
+import Books from './features/books/Books';
+import AddBooks from './features/books/AddBooks';
+import UpdateBook from './features/books/UpdateBook';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,12 +27,30 @@ const router = createBrowserRouter([
         element: <Counter></Counter>
       },
       {
+        path:"/todolist",
+        element: <Todolist></Todolist>
+      },
+      {
         path:"/countries",
         element: <Countries></Countries>,
         children:[
           {
             path:"/countries/:cname",
             element: <CountryDetails></CountryDetails>
+          }
+        ]
+      },
+      {
+        path:"/books",
+        element: <Books></Books>,
+        children:[
+          {
+            path:"/books/addbooks",
+            element: <AddBooks></AddBooks>
+          },
+          {
+            path:"/books/updateBook",
+            element: <UpdateBook></UpdateBook>
           }
         ]
       }
@@ -41,7 +63,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
-    <App />
+  <RouterProvider router={router}></RouterProvider>
   
 );
 

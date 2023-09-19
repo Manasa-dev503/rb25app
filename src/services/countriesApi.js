@@ -10,7 +10,7 @@ export const countriesApi = createApi({
       query: () => `all`,
     }),
     getCountryDetailsByName: builder.query({
-      query: (cn) => {return 'name/${cn}'}
+      query:(cn)=>{return `name/${cn}`}
     })
   }),
 })
