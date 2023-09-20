@@ -5,7 +5,6 @@ import { useGetAllMealsQuery } from '../../services/mealsApi'
 function Cart() {
     //var x = useLocation()
     //console.log(x)
-    
     var [cart,setcart] = React.useState([])
     var {state} = useLocation()
     //console.log(state)
